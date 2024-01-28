@@ -38,7 +38,7 @@ public class Worked_mins {
                     startMin = Integer.parseInt(startTimeParts[1]);
                     startTimeInMin = (startHr * 60 + startMin);
                     if (startHr >= 0 && startHr <= 23 && startMin >= 0 && startMin < 60) {
-                        workTime[day] -= (startHr * 60 + startMin);
+                        workTime[day] -= startTimeInMin;
                         break;
                     }
                 }
@@ -55,6 +55,7 @@ public class Worked_mins {
 
                     if (endHr >= 0 && endHr <= 23 && endMin >= 0 && endMin < 60
                     && endTimeInMin - startTimeInMin > 0  ) {
+                        workTime[day] += endTimeInMin;
                         break;
                     }
                 }
@@ -62,9 +63,16 @@ public class Worked_mins {
 
 
         }
-        int totalWorkTime = 0 ;
-        for (int day = 0 ; day < 5 ; day++){
-            totalWorkTime += workTime[day];
+
+//        int totalWorkTime = 0 ;
+//        for (int day = 0 ; day < 5 ; day++){
+//            totalWorkTime += workTime[day];
+//        }
+
+        // Advanced For
+        int totalWorkTime = 0;
+        for (int time : workTime) {
+            totalWorkTime += time;
         }
 
         System.out.println(totalWorkTime);
