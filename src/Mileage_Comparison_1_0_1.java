@@ -1,5 +1,5 @@
 import java.util.*;
-public class Mileage_Comparison {
+public class Mileage_Comparison_1_0_1 {
 
     public static void main(String[] args){
 
